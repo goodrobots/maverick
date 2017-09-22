@@ -26,7 +26,7 @@ elif [ -f "../VERSION" ]; then
 else
     ver=""
 fi
-if [ -z $ver ]; then
+if [ -z "$ver" ]; then
     $ver = "n/a"
 fi
 echo
