@@ -1,4 +1,6 @@
 # Maverick
+
+[![Join the chat at https://gitter.im/companioncomputers/Lobby](https://badges.gitter.im/companioncomputers/Lobby.svg)](https://gitter.im/companioncomputers/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 UAV Companion Computer System
 
 Maverick is a system for creating, maintaining and controlling UAV Companion Computers.  The name Maverick reflects the initial main goal of interfacing Companion Computers to Flight Controllers through the Mavlink protocol, specifically ArduPilot (PX4 support planned).
