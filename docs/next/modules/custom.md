@@ -9,16 +9,16 @@ Custom modules can be placed in the Maverick System at ~/software/maverick/manif
 
 For an external location for other github projects directories or modules outside the Maverick hierarchy, modules can be placed in ~/code/maverick/custom-modules.
 
-## Adding Custom Modules to Maverick
-To add modules to Maverick System simply add classes to ~/config/maverick/localconf.json
+## Adding Custom Modules to Maverick :id=add-custom-module
+>! To add modules to Maverick System simply add classes to ~/config/maverick/localconf.json
 ```
-"classes": [ “custom_module_class_name"
+"classes": [ “custom_module_class_name","second_custom_module_class_name"
 ]
 ```
 ## Example Custom Modules
 ### Second SITL Module
 Below is a custom module sample for creating a swarm of SITL instances.
-```
+```Python
 class sample_sitl_swarm (
 ) {
 
@@ -48,7 +48,7 @@ class sample_sitl_swarm (
 
 }
 ```
-To add the Sample SITL Swarm Module, add sample_sitl_swarm class to ~/config/maverick/localconf.json in the format described in Adding Custom Modules to Maverick Section.
+To add the Sample SITL Swarm Module, add sample_sitl_swarm class to ~/config/maverick/localconf.json in the format described in [Adding Custom Modules to Maverick](#add-custom-module) Section.
 ```
 "classes": [ “sample_sitl_swarm"
 ]
