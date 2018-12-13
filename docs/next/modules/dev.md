@@ -13,7 +13,7 @@ The *development* module is mostly responsible for setting up the Maverick dev e
 ## Cloud9 IDE
 Cloud9 is a fantastic browser based IDE that includes syntax highlighting, code completion, debugger, command-line terminal, and a modular plug-in architecture.  It was originally integrated to Maverick as part of the Dev module, but it turned out to be so good for general config editing and other purposes that it is now running by default for all environments.  It is implemented as part of it's [own module](/modules/cloud9).
 
-## ArduPilot
+## ArduPilot
 There is a complete git clone of the ArduPilot source tree (master branch by default) in ~/code/ardupilot.  The default vehicle type is ArduCopter, and the firmware is compiled automatically for the SITL environment.  A common development workflow is to develop firmware code in SITL, then when tested and ready upload to the Flight Controller for real world testing.  Maverick makes a great development platform for this workflow.
 
 ### ArduPilot Firmware
