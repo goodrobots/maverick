@@ -147,7 +147,7 @@ Note that the parameter to set the IP address for AP mode is 'apaddress' instead
 'Connection Sharing', aka Masquerading or NAT, is a method of sharing a network connection.  Instead of bridging interfaces, it creates an internal network for clients, forwards the data between interfaces and translates the network addresses to the external network (and back again for the return trip).  This allows a large number of clients to share the single external connection, as well as providing a separate internal network for the clients and better isolation and security.  
 `"forward": "<external interface>"`  
 To setup connection sharing, simply set the 'forward' parameter in the AP interface definition to the external interface.  So for example, if there is a *wman0* interface that is connected to the internet through wifi or 3g/4g connection, and the AP interface is *wap0*, within the *wap0* definition set the 'forward' parameter to *wman0*, as shown in the example in the previous 'AP Interface' section.
-![Network Connection Sharing](/media/network-connection-sharing.svg)
+![Network Connection Sharing](../media/network-connection-sharing.svg)
 
 ### Monitor / Broadcast Interface
 Support for monitor/injection wifi mode and wifibroadcast software is installed by default in Maverick.  A monitor interface can be defined like:  

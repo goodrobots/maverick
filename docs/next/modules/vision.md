@@ -77,7 +77,7 @@ WebVision runs a small Tornado web service and is reverse proxied from port 6793
 WebVision reads the visiond config file (~/config/vision/maverick-visiond.conf) to determine the RTSP port, and takes the FQDN of the server from the server itself.  If this detected fqdn is not available from the browser clients, it can be manually set in the config file by setting the paramter:  
 `webvision_hostname = maverick-raspberry.local`  
 
-<img src="media/webvision-stove.jpg" width="100%">
+<img src="../media/webvision-stove.jpg" width="100%">
 WebVision streaming in realtime visual representation of thermal data from Flir One imager.
 
 ##### Gstreamer client - RTSP
@@ -118,7 +118,7 @@ The first place to look is in the visiond logs, found in ~/var/log/vision/maveri
 
 ### Vision_seek
 Vision_seek is a service similar to visiond, for the Seek Thermal Compact and CompactPro thermal image cameras.  It captures the thermal data, transcodes and processes the data into a format suitable for visualisation, and then streams or saves the images or video to the network or file.  A nice simple setup is to plug the Seek camera directly into the USB port of a Raspberry Pi Zero (W).  
-<img src="media/pizero-seekthermal.jpg" width="100%">
+<img src="../media/pizero-seekthermal.jpg" width="100%">
 There is a config file in ~/config/vision/vision_seek.conf that allows a simple way to alter settings - to activate the changes,  restart the service:  
 `maverick restart vision_seek`  
 This service is not started by default.  To start it:  
@@ -128,10 +128,10 @@ To enable it by default on boot, set a localconf parameter:
 Note that the hardware support for the Seek Thermal camera is automatically applied during a configure run if the camera is plugged in and detected.  To force this support to be installed if building a platform that the Seek is likely to be used with, refer to the [hardware documentation for Seek Thermal devices](/modules/hardware#seek-thermal-cameras).  
 
 Image of lunch, without dead pixel correction applied:  
-<img src="media/thermal-lunch.jpg" width="50%">
+<img src="../media/thermal-lunch.jpg" width="50%">
 
 Image of Intel Joule before and after some hard work (running Maverick vision_landing):  
-<img src="media/joule-thermal.jpg" width="50%">  
+<img src="../media/joule-thermal.jpg" width="50%">  
 
 #### Flat Field Correction (FFC)  
 To create an FFC image that can be applied to vision_seek to improve image quality, first run the camera for a while to warm it up, then cover the lens with something thermally consistent (eg. a book, or DVD cover) and run:  
@@ -149,7 +149,7 @@ Vision_seek has three methods of output, all controlled by setting the *OUTPUT* 
 
 ### Flir One
 Maverick supports the Flir One thermal imaging camera.  
-<img src="media/pizero-flirone.jpg" width="100%">  
+<img src="../media/pizero-flirone.jpg" width="100%">  
 Unlike the Seek Thermal camera which is supported entirely in userspace through OpenCV, Flir One support is achieved through v4l2 loopback devices.  Although a bit harder to set up, this method is easier and more flexible to use as the imager is accessed through standard v4l2 interfaces.  
 Flir One support is disabled by default.  To enable support, set localconf parameter:  
 `"maverick_hardware::flirone_install": true`  
@@ -172,12 +172,12 @@ output = rtsp
 output_dest = 0.0.0.0
 output_port = 5600
 ```
-<img src="media/flirone-radiator.jpg" width="100%">  
+<img src="../media/flirone-radiator.jpg" width="100%">  
 
 ### Vision_landing
 vision_landing combines the Aruco, Gstreamer, OpenCV and optionally RealSense components to create a system that analyses video in realtime for landing markers (Aruco/April fiducial markers, or tags) and uses these markers to estimate the position and distance of the landing marker compared to the UAV and passes this data to the flight controller to achieve Precision Landing.  The flight controller applies corrections according to the attitude of the UAV to work out what needs to be done to land directly on the marker.  A well tuned setup can achieve reliable accuracy to within a couple of centimeters.  
 
-<img src="media/precland1.png" width="100%">
+<img src="../media/precland1.png" width="100%">
 
 It is a work in progress (as is the support for vision based landing in ArduPilot) - the main project page is https://github.com/fnoop/vision_landing.
 
