@@ -11,7 +11,10 @@ For an external location for other github projects directories or modules outsid
 
 ## Adding Custom Modules to Maverick :id=add-custom-module
 !> To add modules to Maverick System simply add classes to ~/config/maverick/localconf.json
+<<<<<<< HEAD
 
+=======
+>>>>>>> 656371c63fb05118841f17de052a091b64cac542
 ```
 "classes": [ “custom_module_class_name","second_custom_module_class_name"
 ]
