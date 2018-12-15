@@ -35,6 +35,7 @@ SERIAL1_BAUD=921
 SERIAL1_PROTOCOL=1
 BRD_SER1_RTSCTS=0
 ```
+
 #### Web log uploader
 Starting from Maverick 1.1.5, a simple logfile uploader was added to the web interface.  Linked from the front page, the page */analysis/uploader* provides a quick and simple way to upload flight logs, with the option to anonymise GPS data as it imports into the timeseries database, and add a Description to each logfile entry.
 

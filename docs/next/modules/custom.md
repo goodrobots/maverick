@@ -5,16 +5,11 @@ Maverick provides locations in the Maverick system that are excluded from upstre
 
 ## Custom Module Locations
 
-Custom modules can be placed in the Maverick System at ~/software/maverick/manifests/custom-modules. This directory is excluded from commits in .gitignore.
-
+Custom modules can be placed in the Maverick System at ~/software/maverick/manifests/custom-modules. This directory is excluded from commits in .gitignore.  
 For an external location for other github projects directories or modules outside the Maverick hierarchy, modules can be placed in ~/code/maverick/custom-modules.
 
 ## Adding Custom Modules to Maverick :id=add-custom-module
 !> To add modules to Maverick System simply add classes to ~/config/maverick/localconf.json
-<<<<<<< HEAD
-
-=======
->>>>>>> 656371c63fb05118841f17de052a091b64cac542
 ```
 "classes": [ “custom_module_class_name","second_custom_module_class_name"
 ]
@@ -53,7 +48,7 @@ class sample_sitl_swarm (
 }
 ```
 To add the Sample SITL Swarm Module, add sample_sitl_swarm class to ~/config/maverick/localconf.json in the format described in [Adding Custom Modules to Maverick](#add-custom-module) Section.
-```
+```json
 "classes": [ “sample_sitl_swarm"
 ]
 ```
