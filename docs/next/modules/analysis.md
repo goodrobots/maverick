@@ -79,7 +79,7 @@ The Error Events Index is a list of all Error events that have occurred across a
 ![Error Events Index](../media/analysis/error-index.jpg)  
 
 #### Dashboards
-<a href="../media/analysis/flightdata-dashboard.jpg" target=_dashboard_><img src="../media/analysis/flightdata-dashboard.jpg"></a>
+<a href="/maverick/next/media/analysis/flightdata-dashboard.jpg">![Flight Data Dashboard](../media/analysis/flightdata-dashboard.jpg)</a>
 
 The dashboards are richly interactive.  In the dashboard screenshot above, there are several labels to highlight the interactions:  
  - *Time Range*: This section allows you to select or alter the time range in view.  It is recommended to use the *Logs Index Dashboard* for selecting time ranges as these are preset to the start and finish times of each flight data log, but it can also be useful for looking at flights as a whole.  There are handy presets, so for example if you have had a full days flying at the airfield, you can select the 'Today' time range and see all data for all flights today.  This is also useful for selecting the system data to view, for example 'Last 30 minutes'.
@@ -88,5 +88,5 @@ The dashboards are richly interactive.  In the dashboard screenshot above, there
  - *Data Tooltip*: When you hover over a graph, it displays a vertical red line underneath the mouse pointer location, and for that set of data points shows a tooltip of the value of each data point at that specific time.  Depending on the dashboard, it also shows either corresponding vertical redlines in all other visible graphs on the page that match exactly to the same time as the graph that is being hovered over, or some dashboards also show corresponding tooltips which can be very useful for comparing data (eg. between IMUs).
  - *Row Header*: Each dashboard contains many graphs which are grouped into rows, or sets of graphs.  Each row is collapsed by default as this is the fastest method of displaying the dashboard, and allows the fastest selection of required data to view.  In order to expand or collapse a row header, simply click on it.  Note that the more graphs open in a dashboard, the slower the display and interactions will be, so only keep open the rows desired to view at any one time.
 
-<a href="../media/analysis/dashboard-zoomin.jpg" target=_dashboard_><img src="../media/analysis/dashboard-zoomin.jpg"></a>  
+<a href="/maverick/next/media/analysis/dashboard-zoomin.jpg">![Dashboard Zoom In](../media/analysis/dashboard-zoomin.jpg)</a>
 In addition, any graph can be click-dragged to select and zoom in to a specific range of data points.  This is very useful for visually zooming in on interesting data.  As one graph is zoomed in, so all other graphs in the dashboard zoom in to the same time scale so they always all show the same range of data points at any one time.
