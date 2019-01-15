@@ -66,21 +66,21 @@ Maverick can place the system in one of several modes, or environments.
 - *Development:* adds useful software and services for development, including a separate python/dronekit virtualenv, browser based IDE (Cloud9) with edit access to all Maverick code and software, complete Ardupilot SITL build, separate mavlink proxy and ROS instances.
 
 
-   | Bootstrap | Flight | Development
---- | :---: | :---: | :---:
-Hardware | x | x | x
-OS | x | x | x
-Network |  | x | x
-Mavlink Proxy |  | x | x
-Dronekit |  | x | x
-Vision |  | x | x
-ROS |  | x | x
-MAVROS |  | x | x
-SITL |  |  | x
-SITL Mavlink Proxy |  |  | x
-SITL ROS |  |  |  x
-SITL MAVROS |  |  |  x
-Web IDE |  | x |  x
+| | Bootstrap | Flight | Development |
+|--- | :---: | :---: | :---: |
+|Hardware | x | x | x |
+|OS | x | x | x |
+|Network |  | x | x |
+|Mavlink Proxy |  | x | x |
+|Dronekit |  | x | x |
+|Vision |  | x | x |
+|ROS |  | x | x |
+|MAVROS |  | x | x |
+|SITL |  |  | x |
+|SITL Mavlink Proxy |  |  | x |
+|SITL ROS |  |  |  x |
+|SITL MAVROS |  |  |  x |
+|Web IDE |  | x |  x |
 
 ______
 

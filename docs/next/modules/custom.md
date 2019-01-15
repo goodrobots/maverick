@@ -9,7 +9,7 @@ Custom modules can be placed in the Maverick System at ~/software/maverick/manif
 For an external location for other github projects directories or modules outside the Maverick hierarchy, modules can be placed in ~/code/maverick/custom-modules.
 
 ## Adding Custom Modules to Maverick :id=add-custom-module
-!> To add modules to Maverick System simply add classes to ~/config/maverick/localconf.json
+!> To add modules to Maverick System add classes to ~/config/maverick/localconf.json
 ```
 "classes": [ “custom_module_class_name","second_custom_module_class_name"
 ]
