@@ -24,8 +24,10 @@ class Tegra(object):
                 board = f.readline().strip()
                 if board == "64":
                     self.data['model'] = 'TK1'
-                elif board == "33":
+                elif board == "33": # TK1 and Nano share the same tegra_chip_id 
                     self.data['model'] = 'TX1'
+                elif board == "25": # AGX and Xavier NX share the same tegra_chip_id 
+                    self.data['model'] = 'AGX'
                 elif board == "24":
                     self.data['model'] = 'TX2'
                 else:
@@ -38,6 +40,8 @@ class Tegra(object):
                 board = f.readline().strip()
                 if re.search('nano', board, re.IGNORECASE):
                     self.data['model'] = 'Jetson Nano'
+                elif re.search('xavier nx', board, re.IGNORECASE):
+                    self.data['model'] = 'Jetson Xavier NX'
         except:
             pass
         
