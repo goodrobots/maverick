@@ -43,7 +43,7 @@ class maverick_mavlink (
     Boolean $cmavnode_install = true,
     String $cmavnode_source = "https://github.com/MonashUAS/cmavnode.git",
     Boolean $mavlink_router_install = true,
-    String $mavlink_router_source = "https://github.com/intel/mavlink-router.git",
+    String $mavlink_router_source = "https://github.com/mavlink-router/mavlink-router.git",
     Boolean $mavproxy_install = true,
     String $mavproxy_source = "https://github.com/ArduPilot/MAVProxy.git",
     Enum['pip', 'source'] $mavproxy_type = "pip",
@@ -175,20 +175,44 @@ class maverick_mavlink (
     # Install mavlink-router from gitsource
     if $mavlink_router_install {
         if ! ("install_flag_mavlink-router" in $installflags) {
-            ensure_packages(["autoconf"])
+            ensure_packages(["autoconf", "meson", "ninja-build", "pkg-config", "gcc", "g++"])
             oncevcsrepo { "git-mavlink-router":
                 gitsource   => $mavlink_router_source,
                 dest        => "/srv/maverick/var/build/mavlink-router",
                 submodules  => true,
             } ->
-            exec { "mavlink-router-build":
-                user        => "mav",
-                timeout     => 0,
-                command     => "/srv/maverick/var/build/mavlink-router/autogen.sh >/srv/maverick/var/log/build/mavlink-router.configure.log 2>&1 && CFLAGS='-g -O2' /srv/maverick/var/build/mavlink-router/configure --prefix=/srv/maverick/software/mavlink-router --disable-systemd >>/srv/maverick/var/log/build/mavlink-router.configure.log 2>&1 && /usr/bin/make -j${buildparallel} >/srv/maverick/var/log/build/mavlink-router.make.log 2>&1 && make install >/srv/maverick/var/log/build/mavlink-router.install.log 2>&1",
+            install_python_module { "pip-meson":
+                pkgname => "meson",
+                ensure  => present,
+            } ->
+            exec { "mavlink-router-meson":
+                command     => "/srv/maverick/software/python/bin/meson --prefix=/srv/maverick/software/mavlink-router --libdir=/srv/maverick/software/mavlink-router -Dsystemdsystemunitdir=/etc/systemd/system build >/srv/maverick/var/log/build/mavlink-router.configure.log 2>&1",
                 cwd         => "/srv/maverick/var/build/mavlink-router",
+                timeout     => 0,
+                user        => "mav",
+                creates     => "/srv/maverick/var/build/mavlink-router/build/build.ninja",
+                require     => Package["meson"],
+            } ->
+            exec { "mavlink-router-ninja":
+                command     => "/usr/bin/ninja -C build >/srv/maverick/var/log/build/mavlink-router.ninja.out 2>&1",
+                cwd         => "/srv/maverick/var/build/mavlink-router",
+                timeout     => 0,
+                user        => "mav",
+                #creates     => "/srv/maverick/var/build/mavlink-router/build",
+                require     => Package["ninja-build"],
+            } ->
+            file{ [ "/srv/maverick/software/mavlink-router",
+                    "/srv/maverick/software/mavlink-router/bin", ]:
+                ensure      => directory,
+                owner       => "mav",
+                group       => "mav",
+            } ->
+            exec { "mavlink-router-copy-install":
+                command     => "/bin/cp /srv/maverick/var/build/mavlink-router/build/src/mavlink-routerd /srv/maverick/software/mavlink-router/bin/mavlink-routerd >/srv/maverick/var/log/build/mavlink-router.install.out 2>&1",
+                cwd         => "/srv/maverick/var/build/mavlink-router",
+                timeout     => 0,
+                user        => "mav",
                 creates     => "/srv/maverick/software/mavlink-router/bin/mavlink-routerd",
-                require     => Package["autoconf"],
-                path        => ["/srv/maverick/software/python/bin", "/usr/local/bin", "/usr/bin", "/bin"],
             } ->
             file { "/srv/maverick/var/build/.install_flag_mavlink-router":
                 ensure      => file,
@@ -409,3 +433,4 @@ class maverick_mavlink (
     }
     
 }
+
