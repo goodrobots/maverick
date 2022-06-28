@@ -1,0 +1,46 @@
+// Sample/default config file for Nvidia Tegra (TK1/TX1/TK2) platform
+// Activated by changing hostname to 'maverick-tegra' and running 'maverick configure'
+{
+
+	// NOTE: Network configuration is defined in localconf.json, to keep settings private
+    "maverick_network::interfaces": {
+		"eth0": {}
+    },
+
+	// "maverick_intelligence::tensorflow": false, // Temporarily disabled until gpu build in place
+
+	// "maverick_intelligence::openkai": true,
+
+	// "base::desktop::enable": true,
+	
+	// Flight Controller (fc) mavlink setup
+	// "maverick_fc::mavlink_proxy": "mavproxy", // Default mavlink proxy type to use
+	// "maverick_fc::mavlink_active": true, // Whether the mavlink proxy is active or not
+	"maverick_fc::mavlink_input": "/dev/ttyTHS0", // Input source for mavlink proxy, how the Companion Computer connects to the Flight Controller
+	"maverick_fc::mavlink_inbaud": "921600", // Input baud rate for UART connections
+	// "maverick_fc::rosmaster_active": true, // Whether ROS master for fc is active or not
+	// "maverick_fc::mavros_active": true, // Whether Mavros for fc is active or not - requires fc rosmaster to be active
+
+	// Dev SITL mavlink setup - note this requires dev environment to be active
+	// "maverick_dev::apsitl_dev::mavlink_proxy": "mavproxy", // Default mavlink proxy type to use
+	// "maverick_dev::apsitl_dev::sitl_active": true, // Whether SITL is active or not
+	// "maverick_dev::apsitl_dev::mavlink_active": true, // Whether mavlink proxy is active or not
+	// "maverick_dev::apsitl_dev::rosmaster_active": true, // Whether ROS master for sitl is active or not
+	// "maverick_dev::apsitl_dev::mavros_active": true, // Whether Mavros for sitl is active or not - requires sitl rosmaster to be active
+
+	// "maverick_intelligence::redtail": true,
+	// "maverick_mavlink::mavcesium_active": true,
+	// "maverick_mavlink::mavcesium_mavlink_port": "5780",
+	
+	// "maverick_mavlink::cuav_install": true,
+	
+	// "maverick_vision::visiond::active": true,
+	// "maverick_vision::vision_landing::vision_landing_revision": "realsense",
+	// "maverick_vision::vision_landing::active": false,
+
+	// Add classes here
+	"classes":		[
+	    // "maverick_network"
+	]
+	
+}
